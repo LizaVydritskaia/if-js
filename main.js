@@ -51,14 +51,11 @@ for (let i = 0; i < arr.length; i++) {
 
 function palindrome() {
   for (let i = 0; i < palindrome.length / 2; i++) {
-  if (palindrome[i] === palindrome[i/2])
-    return true;
+    if (palindrome[i] === palindrome[i / 2]) return true;
   }
-
 }
 
 console.log(palindrome('tenet'));
-
 
 function min(a, b) {
   if (a > b) {
@@ -80,7 +77,7 @@ let array = [12, 50, 69, 4, 100, 81, 7, 18, 40, 3];
 function arrayZero() {
   for (let i = 0; i < 10; i++) {
     array = String(array);
-    }
+  }
   for (let i = 0; i < 10; i++) {
     if (array[i] === '0') {
       array[i] = 'zero';
