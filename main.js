@@ -48,3 +48,45 @@ const arr = [2, 5, 8, 15, 0, 6, 20, 3];
 for (let i = 0; i < arr.length; i++) {
   if (arr[i] % 2 === 0) console.log(arr[i]);
 }
+
+function palindrome() {
+  for (let i = 0; i < palindrome.length / 2; i++) {
+  if (palindrome[i] === palindrome[i/2])
+    return true;
+  }
+
+}
+
+console.log(palindrome('tenet'));
+
+
+function min(a, b) {
+  if (a > b) {
+    return b;
+  }
+  return a;
+}
+
+min(10, 20);
+
+function max(a, y) {
+  return a > y ? a : y;
+}
+
+max(55, 8);
+
+let array = [12, 50, 69, 4, 100, 81, 7, 18, 40, 3];
+
+function arrayZero() {
+  for (let i = 0; i < 10; i++) {
+    array = String(array);
+    }
+  for (let i = 0; i < 10; i++) {
+    if (array[i] === '0') {
+      array[i] = 'zero';
+    }
+  }
+  return array;
+}
+
+console.log(arrayZero());
