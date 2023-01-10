@@ -49,14 +49,17 @@ for (let i = 0; i < arr.length; i++) {
   if (arr[i] % 2 === 0) console.log(arr[i]);
 }
 
-function palindrome() {
-  for (let i = 0; i < palindrome.length / 2; i++) {
-    if (palindrome[i] === palindrome[i / 2]) return true;
+//Create palindrome function
+function palindrome(word) {
+  for (let i = 0; i < word.length; i++) {
+    const endIndex = (word.length - 1) - i;
+    if (word[i] === word[endIndex]) return true;
   }
 }
 
 console.log(palindrome('tenet'));
 
+//Create min(a,b) and max(a,y) functions
 function min(a, b) {
   if (a > b) {
     return b;
@@ -72,18 +75,24 @@ function max(a, y) {
 
 max(55, 8);
 
-let array = [12, 50, 69, 4, 100, 81, 7, 18, 40, 3];
+//Replace 0 with 'zero' in array
+const array = [12, 50, 69, 4, 100, 81, 0, 18, 40, 3];
 
-function arrayZero() {
-  for (let i = 0; i < 10; i++) {
-    array = String(array);
-  }
-  for (let i = 0; i < 10; i++) {
-    if (array[i] === '0') {
-      array[i] = 'zero';
+function arrayZero(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    const element = String(arr[i]);
+    let newElement = '';
+
+    for (let j = 0; j < element.length; j++) {
+      if (element[j] === '0') {
+        newElement += 'zero';
+      } else {
+        newElement += element[j];
+      }
     }
+    arr[i] = newElement;
   }
-  return array;
+  return arr;
 }
 
-console.log(arrayZero());
+arrayZero(array);
