@@ -52,7 +52,7 @@ for (let i = 0; i < arr.length; i++) {
 //Create palindrome function
 function palindrome(word) {
   for (let i = 0; i < word.length; i++) {
-    const endIndex = (word.length - 1) - i;
+    const endIndex = word.length - 1 - i;
     if (word[i] === word[endIndex]) return true;
   }
 }
