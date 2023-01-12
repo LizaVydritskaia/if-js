@@ -49,12 +49,17 @@ for (let i = 0; i < arr.length; i++) {
   if (arr[i] % 2 === 0) console.log(arr[i]);
 }
 
-//Create palindrome function
+// Create palindrome function
 function palindrome(word) {
+  let isPalindrome = true;
+
   for (let i = 0; i < word.length; i++) {
     const endIndex = word.length - 1 - i;
-    if (word[i] === word[endIndex]) return true;
+    if (word[i] !== word[endIndex]) {
+      isPalindrome = false;
+    }
   }
+  return isPalindrome;
 }
 
 console.log(palindrome('tenet'));
