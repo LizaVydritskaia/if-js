@@ -123,7 +123,6 @@ const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 let currentColor = 0;
 
 function getColor(arr, id) {
-
   currentColor++;
 
   if (currentColor === arr.length) {
