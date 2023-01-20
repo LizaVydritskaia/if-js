@@ -101,3 +101,75 @@ function arrayZero(arr) {
 }
 
 arrayZero(array);
+
+//Convert date
+const date = '2020-11-26';
+
+const dateToDate = (input) => {
+  const reg = /(?<year>\d{4})\W(?<month>\d*)\W(?<day>\d*)/g;
+
+  return input.replace(reg, '$<day>.$<month>.$<year>');
+};
+
+console.log(dateToDate(date));
+
+//Create search function
+const data = [
+  {
+    country: 'Russia',
+    city: 'Saint Petersburg',
+    hotel: 'Hotel Leopold',
+  },
+  {
+    country: 'Spain',
+    city: 'Santa Cruz de Tenerife',
+    hotel: 'Apartment Sunshine',
+  },
+  {
+    country: 'Slowakia',
+    city: 'Vysokie Tatry',
+    hotel: 'Villa Kunerad',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hostel Friendship',
+  },
+  {
+    country: 'Indonesia',
+    city: 'Bali',
+    hotel: 'Ubud Bali Resort&SPA',
+  },
+  {
+    country: 'Netherlands',
+    city: 'Rotterdam',
+    hotel: 'King Kong Hostel',
+  },
+  {
+    country: 'Marocco',
+    city: 'Ourika',
+    hotel: 'Rokoko Hotel',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hotel Rehberge Berlin Mitte',
+  },
+];
+
+const search = (string) => {
+  let template = '';
+
+  for (let i = 0; i < data.length; i++) {
+    const hasCountry = data[i].country.includes(string);
+    const hasCity = data[i].city.includes(string);
+    const hasHotel = data[i].hotel.includes(string);
+
+    if (hasCountry || hasCity || hasHotel) {
+      template += `${data[i].country}, ${data[i].city}, ${data[i].hotel} `;
+    }
+  }
+  return template.split('  ');
+};
+
+console.log(search('Berlin'));
