@@ -158,7 +158,7 @@ const data = [
 ];
 
 const search = (string) => {
-  let template = '';
+  const template = [];
 
   for (let i = 0; i < data.length; i++) {
     const hasCountry = data[i].country.includes(string);
@@ -166,10 +166,10 @@ const search = (string) => {
     const hasHotel = data[i].hotel.includes(string);
 
     if (hasCountry || hasCity || hasHotel) {
-      template += `${data[i].country}, ${data[i].city}, ${data[i].hotel} `;
+      template.push(`${data[i].country}, ${data[i].city}, ${data[i].hotel}`);
     }
   }
-  return template.split('  ');
+  return template;
 };
 
 console.log(search('Berlin'));
