@@ -173,3 +173,71 @@ const search = (string) => {
 };
 
 console.log(search('Berlin'));
+
+//Create deepEqual function
+const obj1 = {
+  a: 'a',
+  b: {
+    a: 'a',
+    b: 'b',
+    c: {
+      a: 1,
+    },
+  },
+};
+const obj2 = {
+  b: {
+    c: {
+      a: 1,
+    },
+    b: 'b',
+    a: 'a',
+  },
+  a: 'a',
+};
+const obj3 = {
+  a: {
+    c: {
+      a: 'a',
+    },
+    b: 'b',
+    a: 'a',
+  },
+  b: 'b',
+};
+
+const deepEqual = (object1, object2) => {
+  const keys1 = Object.keys(object1);
+  const keys2 = Object.keys(object2);
+
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  for (let i = 0; i < keys1.length; i++) {
+    if (keys2.includes(keys1[i]) === false) {
+      return false;
+    }
+  }
+
+  for (let i = 0; i < keys1.length; i++) {
+    const values1 = object1[keys1[i]];
+    const values2 = object2[keys1[i]];
+
+    if (typeof values1 === 'object' || typeof values2 === 'object') {
+      if (deepEqual(values1, values2) === false) {
+        return false;
+      } else {
+        continue;
+      }
+    }
+
+    if (values1 !== values2) {
+      return false;
+    }
+  }
+  return true;
+};
+
+console.log(deepEqual(obj1, obj2));
+console.log(deepEqual(obj1, obj3));
