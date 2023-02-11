@@ -120,7 +120,7 @@ const text3 = document.getElementById('text3');
 
 const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 
-import { getColor } from "./getColor.js";
+import { getColor } from './getColor.js';
 
 text1.addEventListener('click', (event) => {
   event.target.style.color = getColor(colors, text1);
