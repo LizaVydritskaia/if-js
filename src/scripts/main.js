@@ -120,16 +120,7 @@ const text3 = document.getElementById('text3');
 
 const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 
-let currentColor = 0;
-
-function getColor(arr, id) {
-  currentColor++;
-
-  if (currentColor === arr.length) {
-    currentColor = 0;
-  }
-  id.style.color = arr[currentColor];
-}
+import { getColor } from "./getColor.js";
 
 text1.addEventListener('click', (event) => {
   event.target.style.color = getColor(colors, text1);
