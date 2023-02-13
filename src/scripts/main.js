@@ -122,14 +122,8 @@ const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 
 import { getColor } from './getColor.js';
 
-text1.addEventListener('click', (event) => {
-  event.target.style.color = getColor(colors, text1);
-});
+text1.addEventListener('click', getColor(colors));
 
-text2.addEventListener('click', (event) => {
-  event.target.style.color = getColor(colors, text2);
-});
+text2.addEventListener('click', getColor(colors));
 
-text3.addEventListener('click', (event) => {
-  event.target.style.color = getColor(colors, text3);
-});
+text3.addEventListener('click', getColor(colors));

@@ -1,12 +1,12 @@
-let currentColor = 0;
-export function getColor(arr, id) {
-  id = arr[currentColor];
+export function getColor(arr) {
+  let currentColor = 0;
 
-  if (currentColor === arr.length) {
-    currentColor = 0;
-  } else {
+  return function newColor(event) {
+    event.target.style.color = arr[currentColor];
     currentColor++;
-  }
 
-  return id;
+    if (currentColor === arr.length) {
+      currentColor = 0;
+    }
+  };
 }
