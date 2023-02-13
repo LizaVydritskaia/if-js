@@ -127,3 +127,349 @@ text1.addEventListener('click', getColor(colors));
 text2.addEventListener('click', getColor(colors));
 
 text3.addEventListener('click', getColor(colors));
+
+//Convert date
+const date = '2020-11-26';
+
+const dateToDate = (input) => {
+  const reg = /(?<year>\d{4})\W(?<month>\d*)\W(?<day>\d*)/g;
+
+  return input.replace(reg, '$<day>.$<month>.$<year>');
+};
+
+console.log(dateToDate(date));
+
+//Create search function
+const data = [
+  {
+    country: 'Russia',
+    city: 'Saint Petersburg',
+    hotel: 'Hotel Leopold',
+  },
+  {
+    country: 'Spain',
+    city: 'Santa Cruz de Tenerife',
+    hotel: 'Apartment Sunshine',
+  },
+  {
+    country: 'Slowakia',
+    city: 'Vysokie Tatry',
+    hotel: 'Villa Kunerad',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hostel Friendship',
+  },
+  {
+    country: 'Indonesia',
+    city: 'Bali',
+    hotel: 'Ubud Bali Resort&SPA',
+  },
+  {
+    country: 'Netherlands',
+    city: 'Rotterdam',
+    hotel: 'King Kong Hostel',
+  },
+  {
+    country: 'Marocco',
+    city: 'Ourika',
+    hotel: 'Rokoko Hotel',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hotel Rehberge Berlin Mitte',
+  },
+];
+
+const search = (string) => {
+  const template = [];
+
+  for (let i = 0; i < data.length; i++) {
+    const hasCountry = data[i].country.includes(string);
+    const hasCity = data[i].city.includes(string);
+    const hasHotel = data[i].hotel.includes(string);
+
+    if (hasCountry || hasCity || hasHotel) {
+      template.push(`${data[i].country}, ${data[i].city}, ${data[i].hotel}`);
+    }
+  }
+  return template;
+};
+
+console.log(search('Berlin'));
+
+//Rewrite palindrome function
+function isPalindrome(word) {
+  return word === word.split('').reverse().join('');
+}
+
+console.log(isPalindrome('uber'));
+console.log(isPalindrome('шалаш'));
+console.log(isPalindrome('шалааш'));
+
+//Rewrite search function
+const hotels = [
+  {
+    name: 'Hotel Leopold',
+    city: 'Saint Petersburg',
+    country: 'Russia',
+  },
+  {
+    name: 'Apartment Sunshine',
+    city: 'Santa Cruz de Tenerife',
+    country: 'Spain',
+  },
+  {
+    name: 'Villa Kunerad',
+    city: 'Vysokie Tatry',
+    country: 'Slowakia',
+  },
+  {
+    name: 'Hostel Friendship',
+    city: 'Berlin',
+    country: 'Germany',
+  },
+  {
+    name: 'Radisson Blu Hotel',
+    city: 'Kyiv',
+    country: 'Ukraine',
+  },
+  {
+    name: 'Paradise Hotel',
+    city: 'Guadalupe',
+    country: 'Mexico',
+  },
+  {
+    name: 'Hotel Grindewald',
+    city: 'Interlaken',
+    country: 'Switzerland',
+  },
+  {
+    name: 'The Andaman Resort',
+    city: 'Port Dickson',
+    country: 'Malaysia',
+  },
+  {
+    name: 'Virgin Hotel',
+    city: 'Chicago',
+    country: 'USA',
+  },
+  {
+    name: 'Grand Beach Resort',
+    city: 'Dubai',
+    country: 'United Arab Emirates',
+  },
+  {
+    name: 'Shilla Stay',
+    city: 'Seoul',
+    country: 'South Korea',
+  },
+  {
+    name: 'San Firenze Suites',
+    city: 'Florence',
+    country: 'Italy',
+  },
+  {
+    name: 'The Andaman Resort',
+    city: 'Port Dickson',
+    country: 'Malaysia',
+  },
+  {
+    name: 'Black Penny Villas',
+    city: 'BTDC, Nuca Dua',
+    country: 'Indonesia',
+  },
+  {
+    name: 'Koko Hotel',
+    city: 'Tokyo',
+    country: 'Japan',
+  },
+  {
+    name: 'Ramada Plaza',
+    city: 'Istanbul',
+    country: 'Turkey',
+  },
+  {
+    name: 'Waikiki Resort Hotel',
+    city: 'Hawaii',
+    country: 'USA',
+  },
+  {
+    name: 'Puro Hotel',
+    city: 'Krakow',
+    country: 'Poland',
+  },
+  {
+    name: 'Asma Suites',
+    city: 'Santorini',
+    country: 'Greece',
+  },
+  {
+    name: 'Cityden Apartments',
+    city: 'Amsterdam',
+    country: 'Netherlands',
+  },
+  {
+    name: 'Mandarin Oriental',
+    city: 'Miami',
+    country: 'USA',
+  },
+  {
+    name: 'Concept Terrace Hotel',
+    city: 'Rome',
+    country: 'Italy',
+  },
+  {
+    name: 'Ponta Mar Hotel',
+    city: 'Fortaleza',
+    country: 'Brazil',
+  },
+  {
+    name: 'Four Seasons Hotel',
+    city: 'Sydney',
+    country: 'Australia',
+  },
+  {
+    name: 'Le Meridien',
+    city: 'Nice',
+    country: 'France',
+  },
+  {
+    name: 'Apart Neptun',
+    city: 'Gdansk',
+    country: 'Poland',
+  },
+  {
+    name: 'Lux Isla',
+    city: 'Ibiza',
+    country: 'Spain',
+  },
+  {
+    name: 'Nox Hostel',
+    city: 'London',
+    country: 'UK',
+  },
+  {
+    name: 'Leonardo Vienna',
+    city: 'Vienna',
+    country: 'Austria',
+  },
+  {
+    name: 'Adagio Aparthotel',
+    city: 'Edinburgh',
+    country: 'UK',
+  },
+  {
+    name: 'Steigenberger Hotel',
+    city: 'Hamburg',
+    country: 'Germany',
+  },
+];
+
+const searchString = (string) => {
+  const temp = [];
+
+  const filtered = hotels.filter((item) => {
+    return (
+      item.country.includes(string) ||
+      item.city.includes(string) ||
+      item.name.includes(string)
+    );
+  });
+
+  filtered.forEach((item) => {
+    return temp.push(`${item.country}, ${item.city}, ${item.name}`);
+  });
+
+  return temp;
+};
+
+console.log(searchString('USA'));
+
+//Get countries and cities from array
+const getCountryAndCities = (arr) => {
+  const newObject = {};
+  arr.reduce((acc, currHotel) => {
+    const newKey = currHotel.country;
+    if (!acc[newKey]) {
+      acc[newKey] = [];
+    }
+    acc[newKey].push(currHotel.city);
+
+    return acc;
+  }, newObject);
+
+  return newObject;
+};
+
+console.log(getCountryAndCities(hotels));
+
+//Create deepEqual function
+const obj1 = {
+  a: 'a',
+  b: {
+    a: 'a',
+    b: 'b',
+    c: {
+      a: 1,
+    },
+  },
+};
+const obj2 = {
+  b: {
+    c: {
+      a: 1,
+    },
+    b: 'b',
+    a: 'a',
+  },
+  a: 'a',
+};
+const obj3 = {
+  a: {
+    c: {
+      a: 'a',
+    },
+    b: 'b',
+    a: 'a',
+  },
+  b: 'b',
+};
+
+const deepEqual = (object1, object2) => {
+  const keys1 = Object.keys(object1);
+  const keys2 = Object.keys(object2);
+
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  for (let i = 0; i < keys1.length; i++) {
+    if (keys2.includes(keys1[i]) === false) {
+      return false;
+    }
+  }
+
+  for (let i = 0; i < keys1.length; i++) {
+    const values1 = object1[keys1[i]];
+    const values2 = object2[keys1[i]];
+
+    if (typeof values1 === 'object' || typeof values2 === 'object') {
+      if (deepEqual(values1, values2) === false) {
+        return false;
+      } else {
+        continue;
+      }
+    }
+
+    if (values1 !== values2) {
+      return false;
+    }
+  }
+  return true;
+};
+
+console.log(deepEqual(obj1, obj2));
+console.log(deepEqual(obj1, obj3));
