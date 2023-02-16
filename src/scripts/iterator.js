@@ -1,29 +1,29 @@
 const colors = {
-    data: ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'],
-    [Symbol.iterator]() {
-        return this;
-    },
+  data: ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'],
+  [Symbol.iterator]() {
+    return this;
+  },
 
-    next() {
-        if (this.currentIndex === undefined) {
-            this.currentIndex = 0;
-        }
+  next() {
+    if (this.currentIndex === undefined) {
+      this.currentIndex = 0;
+    }
 
-        if (this.currentIndex < this.data.length) {
-            return {
-                value: this.data[this.currentIndex++],
-                done: false,
-            };
-        }
+    if (this.currentIndex < this.data.length) {
+      return {
+        value: this.data[this.currentIndex++],
+        done: false,
+      };
+    }
 
-        if (this.currentIndex === this.data.length) {
-            this.currentIndex = 0;
-        }
-    },
+    if (this.currentIndex === this.data.length) {
+      this.currentIndex = 0;
+    }
+  },
 };
 
 const changeStyle = (id) => (event) => {
-    event.target.style.color = colors.next(id).value;
+  event.target.style.color = colors.next(id).value;
 };
 
 const text4 = document.getElementById('text4');
