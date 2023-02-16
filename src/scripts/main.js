@@ -102,6 +102,32 @@ function arrayZero(arr) {
 
 arrayZero(array);
 
+//Create sum function
+(() => {
+  function sum(a) {
+    return function (b) {
+      return a + b;
+    };
+  }
+
+  console.log(sum(5)(2));
+})();
+
+//Change paragraph color by click
+const text1 = document.getElementById('text1');
+const text2 = document.getElementById('text2');
+const text3 = document.getElementById('text3');
+
+const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+
+import { getColor } from './getColor.js';
+
+text1.addEventListener('click', getColor(colors));
+
+text2.addEventListener('click', getColor(colors));
+
+text3.addEventListener('click', getColor(colors));
+
 //Convert date
 const date = '2020-11-26';
 
