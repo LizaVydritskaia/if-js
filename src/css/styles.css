@@ -1,4 +1,4 @@
-@import url("./fonts.css");
+@import url('./fonts.css');
 
 :root {
   --text-primary-color: #383838;
@@ -20,7 +20,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .col-lg-1 {
@@ -71,7 +71,7 @@ body {
   width: 100%;
 }
 
-[class*="col-"] {
+[class*='col-'] {
   margin-left: 8px;
   margin-right: 8px;
 }
@@ -99,7 +99,7 @@ body {
 }
 
 .top-section {
-  background-image: url("../images/background-castelmezzano.jpg");
+  background-image: url('../images/background-castelmezzano.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
   order: 0;
@@ -145,7 +145,7 @@ body {
 }
 
 .header__hover-line:hover::after {
-  content: "";
+  content: '';
   display: block;
   height: 4px;
   background-color: var(--accent-yellow);
@@ -468,7 +468,7 @@ body {
 }
 
 .offer__title:after {
-  content: "";
+  content: '';
   display: block;
   width: 100px;
   height: 4px;
@@ -910,7 +910,7 @@ body {
 }
 
 .reviews__score > span {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -1115,7 +1115,7 @@ ul li:first-child {
   }
 
   .header__hover-line:hover::after {
-    content: "";
+    content: '';
     display: block;
     width: 35px;
     height: 3px;
