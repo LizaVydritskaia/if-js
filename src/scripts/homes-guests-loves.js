@@ -1,22 +1,6 @@
 import { data } from './data-homes.js';
 
-const homesSection = document.createElement('section');
-homesSection.className = 'homes';
-
-const mainDiv = document.createElement('div');
-mainDiv.className = 'container';
-
-homesSection.appendChild(mainDiv);
-
-const homesTitleEl = document.createElement('h2');
-homesTitleEl.className = 'homes__title';
-homesTitleEl.textContent = 'Homes guests loves';
-
-mainDiv.appendChild(homesTitleEl);
-
-const homesHotels = document.createElement('div');
-homesHotels.className = 'homes__hotels';
-mainDiv.appendChild(homesHotels);
+const homesHotels = document.querySelector('.homes__hotels');
 
 function createHotels(div, array) {
   for (const item of array) {
@@ -35,18 +19,3 @@ function createHotels(div, array) {
 }
 
 createHotels(homesHotels, data);
-
-const circle = document.createElement('div');
-circle.className = 'homes__circle-arrow';
-
-const arrow = document.createElement('div');
-arrow.className = 'homes__arrow';
-
-circle.appendChild(arrow);
-
-homesHotels.appendChild(circle);
-
-const destinationsSection = document.querySelector('.destinations');
-const mainSection = destinationsSection.parentNode;
-
-mainSection.insertBefore(homesSection, destinationsSection);
