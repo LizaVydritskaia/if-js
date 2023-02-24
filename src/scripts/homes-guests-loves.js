@@ -1,9 +1,9 @@
 import { data } from './data-homes.js';
 
-const homesHotels = document.querySelector('.homes__hotels');
+const homesHotels = document.getElementById('hotels');
 
-function createHotels(div, array) {
-  for (const item of array) {
+const createHotels = (div, array) => {
+  array.forEach((item) => {
     const hotelDiv = document.createElement('div');
     hotelDiv.className = 'homes__hotel-block';
 
@@ -15,7 +15,7 @@ function createHotels(div, array) {
 
     const hotelClasses = ['col-lg-3', 'col-md-6', 'col-sm-3'];
     hotelDiv.classList.add(...hotelClasses);
-  }
-}
+  });
+};
 
 createHotels(homesHotels, data);
