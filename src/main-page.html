@@ -325,6 +325,90 @@
               </div>
             </div>
             <button class="top-section__button" type="submit">Search</button>
+            <div class="top-section__filter">
+              <div class="top-section__filter-block">
+                <span class="top-section__filter-text">Adults</span>
+                <div class="top-section__filter-counter">
+                  <div
+                    class="top-section__filter-button"
+                    data-field="adults"
+                    data-direction="minus"
+                  >
+                    –
+                  </div>
+                  <input
+                    type="text"
+                    value="2"
+                    class="top-section__input-value"
+                    disabled
+                  />
+                  <div
+                    class="top-section__filter-button"
+                    data-field="adults"
+                    data-direction="plus"
+                  >
+                    +
+                  </div>
+                </div>
+              </div>
+              <div class="top-section__filter-block">
+                <span class="top-section__filter-text">Children</span>
+                <div class="top-section__filter-counter">
+                  <div
+                    class="top-section__filter-button _disabled"
+                    data-field="children"
+                    data-direction="minus"
+                  >
+                    –
+                  </div>
+                  <input
+                    type="text"
+                    value="0"
+                    class="top-section__input-value"
+                    disabled
+                  />
+                  <div
+                    class="top-section__filter-button"
+                    data-field="children"
+                    data-direction="plus"
+                  >
+                    +
+                  </div>
+                </div>
+              </div>
+              <div class="top-section__filter-block">
+                <span class="top-section__filter-text">Room</span>
+                <div class="top-section__filter-counter">
+                  <div
+                    class="top-section__filter-button _disabled"
+                    data-field="room"
+                    data-direction="minus"
+                  >
+                    –
+                  </div>
+                  <input
+                    type="text"
+                    value="1"
+                    class="top-section__input-value"
+                    disabled
+                  />
+                  <div
+                    class="top-section__filter-button"
+                    data-field="room"
+                    data-direction="plus"
+                  >
+                    +
+                  </div>
+                </div>
+              </div>
+              <div class="top-section__filter-children">
+                <form class="top-section__filter-form" action="/">
+                  <label class="top-section__filter-label" for="child-age"
+                    >What is the age of the child you’re travelling with?</label
+                  >
+                </form>
+              </div>
+            </div>
           </form>
           <div class="top-section__apps">
             <svg class="top-section__apps--google-play">
@@ -670,6 +754,9 @@
         </div>
       </footer>
     </main>
+    <script type="module" src="scripts/show-filter.js"></script>
+    <script type="module" src="scripts/filter-counter.js"></script>
+    <script type="module" src="scripts/filter-children-selects.js"></script>
     <script type="module" src="scripts/data-homes.js"></script>
     <script type="module" src="scripts/homes-guests-loves.js"></script>
   </body>
