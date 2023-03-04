@@ -10,7 +10,6 @@ const getChildrenSelect = (event) => {
   const input = event.target.parentElement.querySelector(
     '.top-section__input-value',
   );
-  console.log(direction, field, input);
 
   const select = document.createElement('select');
   select.className = 'top-section__filter-select';

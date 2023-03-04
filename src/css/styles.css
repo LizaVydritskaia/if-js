@@ -236,12 +236,20 @@ body {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   padding: 22px 24px;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--text-primary-color);
 }
 
 .top-section__input-destination::placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--text-primary-color);
+}
+
+.top-section__input-destination:focus::placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .top-section__input-destination:focus {
@@ -355,7 +363,7 @@ body {
   color: var(--text-primary-color);
   position: absolute;
   left: 40px;
-  top: 20px;
+  top: 21px;
 }
 
 .top-section__input-adults {
@@ -363,9 +371,6 @@ body {
   height: 64px;
   border: none;
   padding-left: 24px;
-}
-
-.top-section__input-adults::placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--text-primary-color);
@@ -391,16 +396,13 @@ body {
   color: var(--text-primary-color);
   position: absolute;
   left: 18px;
-  top: 20px;
+  top: 21px;
 }
 
 .top-section__input-children-room {
   width: 100%;
   height: 64px;
   border: none;
-}
-
-.top-section__input-children-room::placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--text-primary-color);
@@ -422,7 +424,7 @@ body {
   color: var(--text-primary-color);
   position: absolute;
   left: 18px;
-  top: 20px;
+  top: 21px;
 }
 
 .top-section__button {
@@ -434,6 +436,10 @@ body {
   font-weight: 500;
   font-size: 24px;
   color: var(--text-general-white);
+}
+
+.top-section__button:hover {
+  cursor: pointer;
 }
 
 .top-section__apps {
