@@ -5,7 +5,7 @@ export const counterButtons = document.querySelectorAll(
 const inputAdults = document.getElementById('adults');
 const inputChildren = document.getElementById('children');
 const inputRoom = document.getElementById('room');
-const filterInput = document.querySelector('.top-section__input-value');
+const filterInput = document.querySelectorAll('.top-section__input-value');
 
 const handlerCounter = (event) => {
   const direction = event.target.dataset.direction;
