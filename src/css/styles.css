@@ -452,9 +452,27 @@ body {
   height: 40px;
 }
 
+.available-hotels {
+  display: none;
+  background-color: var(--background-color);
+  order: 1;
+}
+
+.available-hotels .available-hotels__hotel-block:first-child {
+  margin-left: 0;
+}
+
+.available-hotels .available-hotels__hotel-block:nth-child(4) {
+  margin-right: 0;
+}
+
+.available-hotels .available-hotels__hotel-block:nth-child(n + 5) {
+  display: none;
+}
+
 .offer {
   width: 100%;
-  order: 1;
+  order: 2;
 }
 
 .offer__title {
