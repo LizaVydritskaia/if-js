@@ -10,10 +10,11 @@ const filterInput = document.querySelectorAll('.top-section__input-value');
 const handlerCounter = (event) => {
   const direction = event.target.dataset.direction;
   const field = event.target.dataset.field;
+  const min = event.target.dataset.min;
+  const max = event.target.dataset.max;
   const input = event.target.parentElement.querySelector(
     '.top-section__input-value',
   );
-  console.log(direction, field, input);
 
   const currentValue = Number(input.value);
   let newValue;
@@ -26,95 +27,39 @@ const handlerCounter = (event) => {
     newValue = currentValue - 1;
   }
 
-  if (field === 'adults' && direction === 'plus' && input.value === '30') {
+  if (direction === 'plus' && input.value === max) {
     event.target.classList.add('_disabled');
     return;
   }
 
-  if (field === 'adults' && direction === 'minus' && input.value <= '30') {
-    event.target.parentElement
-      .querySelector('[data-direction="plus"]')
-      .classList.remove('_disabled');
-  }
-
-  if (field === 'adults' && direction === 'minus' && input.value === '1') {
+  if (direction === 'minus' && input.value === min) {
     event.target.classList.add('_disabled');
     return;
   }
 
-  if (field === 'adults' && direction === 'plus' && input.value >= '1') {
+  if (direction === 'plus' && input.value >= min) {
     event.target.parentElement
       .querySelector('[data-direction="minus"]')
       .classList.remove('_disabled');
   }
 
-  if (field === 'children' && direction === 'plus' && input.value === '10') {
-    event.target.classList.add('_disabled');
-    return;
-  }
-
-  if (field === 'children' && direction === 'minus' && input.value <= '10') {
+  if (direction === 'minus' && input.value <= max) {
     event.target.parentElement
       .querySelector('[data-direction="plus"]')
-      .classList.remove('_disabled');
-  }
-
-  if (field === 'children' && direction === 'minus' && input.value === '0') {
-    event.target.classList.add('_disabled');
-    return;
-  }
-
-  if (field === 'children' && direction === 'plus' && input.value > '0') {
-    event.target.parentElement
-      .querySelector('[data-direction="minus"]')
-      .classList.remove('_disabled');
-  }
-
-  if (field === 'room' && direction === 'plus' && input.value === '30') {
-    event.target.classList.add('_disabled');
-    return;
-  }
-
-  if (field === 'room' && direction === 'minus' && input.value <= '30') {
-    event.target.parentElement
-      .querySelector('[data-direction="plus"]')
-      .classList.remove('_disabled');
-  }
-
-  if (field === 'room' && direction === 'minus' && input.value === '1') {
-    event.target.classList.add('_disabled');
-    return;
-  }
-
-  if (field === 'room' && direction === 'plus' && input.value >= '1') {
-    event.target.parentElement
-      .querySelector('[data-direction="minus"]')
       .classList.remove('_disabled');
   }
 
   input.value = newValue;
 
-  if (field === 'adults' && direction === 'plus') {
+  if (field === 'adults') {
     inputAdults.value = input.value;
   }
 
-  if (field === 'adults' && direction === 'minus') {
-    inputAdults.value = input.value;
-  }
-
-  if (field === 'children' && direction === 'plus') {
+  if (field === 'children') {
     inputChildren.value = input.value;
   }
 
-  if (field === 'children' && direction === 'minus') {
-    inputChildren.value = input.value;
-  }
-
-  if (field === 'room' && direction === 'plus') {
-    inputRoom.value = input.value;
-  }
-
-  if (field === 'room' && direction === 'minus') {
+  if (field === 'room') {
     inputRoom.value = input.value;
   }
 };

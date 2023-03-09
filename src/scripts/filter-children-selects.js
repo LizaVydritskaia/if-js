@@ -16,13 +16,7 @@ const getChildrenSelect = (event) => {
   select.setAttribute('id', 'child-age');
   select.setAttribute('name', 'child-age');
 
-  if (field === 'children' && direction === 'plus' && input.value === '1') {
-    childrenAgeSelects.style.display = 'block';
-  }
-
-  if (field === 'children' && direction === 'minus' && input.value === '0') {
-    childrenAgeSelects.style.display = 'none';
-  }
+  childrenAgeSelects.style.display = input.value > '0' ? 'block' : 'none';
 
   if (field === 'children' && direction === 'plus' && input.value > '0') {
     for (let i = 0; i < 10; i++) {
