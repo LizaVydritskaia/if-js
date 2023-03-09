@@ -8,7 +8,8 @@ const getSearchData = async () => {
   const destinationInputValue = document.getElementById('destination').value;
 
   const searchData = await fetch(
-    url + '?' +
+    url +
+      '?' +
       new URLSearchParams({ search: destinationInputValue }).toString(),
   );
 
