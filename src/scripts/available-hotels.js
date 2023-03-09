@@ -2,11 +2,13 @@ const searchButton = document.querySelector('.top-section__button');
 const sectionAvailableHotels = document.querySelector('.available-hotels');
 const availableHotels = document.getElementById('available-hotels');
 
+const url = 'https://if-student-api.onrender.com/api/hotels';
+
 const getSearchData = async () => {
   const destinationInputValue = document.getElementById('destination').value;
 
   const searchData = await fetch(
-    'https://if-student-api.onrender.com/api/hotels?' +
+    url + '?' +
       new URLSearchParams({ search: destinationInputValue }).toString(),
   );
 
