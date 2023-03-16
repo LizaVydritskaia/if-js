@@ -563,11 +563,11 @@ body {
   margin-left: 0;
 }
 
-.homes__hotels .homes__hotel-block:nth-child(5) {
+.homes__hotels .homes__hotel-block:nth-child(4) {
   margin-right: 0;
 }
 
-.homes__hotels .homes__hotel-block:nth-last-child(-n + 4) {
+.homes__hotels .homes__hotel-block:nth-child(n + 5) {
   display: none;
 }
 
