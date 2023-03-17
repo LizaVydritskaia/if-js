@@ -4,18 +4,14 @@ const availableHotels = document.getElementById('available-hotels');
 const arrow =
   '<div class="homes__circle-arrow"><div class="homes__arrow"></div></div>';
 
-const url = 'https://if-student-api.onrender.com/api/hotels';
-
 const getSearchData = async () => {
-  const destinationInputValue = document.getElementById('destination').value;
+  const destinationInputValue = document.getElementById('destination');
+
+  const url = new URL('https://if-student-api.onrender.com/api/hotels');
+  url.searchParams.append('search', destinationInputValue.value.trim());
 
   try {
-    const searchData = await fetch(
-      url +
-        '?' +
-        new URLSearchParams({ search: destinationInputValue }).toString(),
-    );
-
+    const searchData = await fetch(url);
     const result = await searchData.json();
     await renderAvailableHotels(result);
   } catch (error) {
@@ -41,4 +37,7 @@ const renderAvailableHotels = (result) => {
   availableHotels.insertAdjacentHTML('beforeend', arrow);
 };
 
-searchButton.addEventListener('click', getSearchData);
+searchButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  getSearchData();
+});
