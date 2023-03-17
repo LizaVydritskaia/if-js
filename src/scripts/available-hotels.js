@@ -5,10 +5,10 @@ const arrow =
   '<div class="homes__circle-arrow"><div class="homes__arrow"></div></div>';
 
 const getSearchData = async () => {
-  const destinationInputValue = document.getElementById('destination');
+  const destinationInput = document.getElementById('destination');
 
   const url = new URL('https://if-student-api.onrender.com/api/hotels');
-  url.searchParams.append('search', destinationInputValue.value.trim());
+  url.searchParams.append('search', destinationInput.value.trim());
 
   try {
     const searchData = await fetch(url);
