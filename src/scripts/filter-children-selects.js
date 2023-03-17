@@ -2,11 +2,10 @@ const childrenAgeSelects = document.querySelector(
   '.top-section__filter-children',
 );
 
-import { counterButtons } from './filter-counter.js';
+const childrenButtons = document.querySelectorAll('[data-field="children"]');
 
 const getChildrenSelect = (event) => {
   const direction = event.target.dataset.direction;
-  const field = event.target.dataset.field;
   const input = event.target.parentElement.querySelector(
     '.top-section__input-value',
   );
@@ -18,7 +17,7 @@ const getChildrenSelect = (event) => {
 
   childrenAgeSelects.style.display = input.value > '0' ? 'block' : 'none';
 
-  if (field === 'children' && direction === 'plus' && input.value > '0') {
+  if (direction === 'plus' && input.value > '0') {
     for (let i = 0; i < 10; i++) {
       let option = '';
 
@@ -32,7 +31,7 @@ const getChildrenSelect = (event) => {
     childrenAgeSelects.append(select);
   }
 
-  if (field === 'children' && direction === 'minus') {
+  if (direction === 'minus') {
     const allSelects = document.querySelectorAll('.top-section__filter-select');
     const lastSelect = allSelects[allSelects.length - 1];
 
@@ -40,6 +39,6 @@ const getChildrenSelect = (event) => {
   }
 };
 
-counterButtons.forEach((button) => {
+childrenButtons.forEach((button) => {
   button.addEventListener('click', getChildrenSelect);
 });

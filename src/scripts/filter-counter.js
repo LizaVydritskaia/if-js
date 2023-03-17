@@ -1,6 +1,4 @@
-export const counterButtons = document.querySelectorAll(
-  '.top-section__filter-button',
-);
+const counterButtons = document.querySelectorAll('.top-section__filter-button');
 
 const inputAdults = document.getElementById('adults');
 const inputChildren = document.getElementById('children');
@@ -27,29 +25,27 @@ const handlerCounter = (event) => {
     newValue = currentValue - 1;
   }
 
+  input.value = newValue;
+
   if (direction === 'plus' && input.value === max) {
-    event.target.classList.add('_disabled');
-    return;
+    event.target.disabled = true;
   }
 
   if (direction === 'minus' && input.value === min) {
-    event.target.classList.add('_disabled');
-    return;
+    event.target.disabled = true;
   }
 
-  if (direction === 'plus' && input.value >= min) {
-    event.target.parentElement
-      .querySelector('[data-direction="minus"]')
-      .classList.remove('_disabled');
+  if (direction === 'plus' && input.value > min) {
+    event.target.parentElement.querySelector(
+      '[data-direction="minus"]',
+    ).disabled = false;
   }
 
-  if (direction === 'minus' && input.value <= max) {
-    event.target.parentElement
-      .querySelector('[data-direction="plus"]')
-      .classList.remove('_disabled');
+  if (direction === 'minus' && input.value < max) {
+    event.target.parentElement.querySelector(
+      '[data-direction="plus"]',
+    ).disabled = false;
   }
-
-  input.value = newValue;
 
   if (field === 'adults') {
     inputAdults.value = input.value;
