@@ -35,13 +35,13 @@ const handlerCounter = (event) => {
     event.target.disabled = true;
   }
 
-  if (direction === 'plus' && input.value > min) {
+  if (direction === 'plus' && Number(input.value) > Number(min)) {
     event.target.parentElement.querySelector(
       '[data-direction="minus"]',
     ).disabled = false;
   }
 
-  if (direction === 'minus' && input.value < max) {
+  if (direction === 'minus' && Number(input.value) < Number(max)) {
     event.target.parentElement.querySelector(
       '[data-direction="plus"]',
     ).disabled = false;
