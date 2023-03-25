@@ -10,6 +10,7 @@
   --general-blue: #10367c;
   --accent-blue: #3077c6;
   --dark-gray: #333333;
+  --light-gray: #cecece;
 
   --col-width: calc(100% / 12);
 }
@@ -235,12 +236,20 @@ body {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   padding: 22px 24px;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--text-primary-color);
 }
 
 .top-section__input-destination::placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--text-primary-color);
+}
+
+.top-section__input-destination:focus::placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .top-section__input-destination:focus {
@@ -263,7 +272,7 @@ body {
   color: var(--text-general-white);
   position: absolute;
   top: -45px;
-  left: 20px;
+  left: 17px;
 }
 
 .top-section__label-check-in span {
@@ -336,7 +345,7 @@ body {
 }
 
 .top-section__room {
-  width: 27%;
+  width: 29%;
   display: flex;
   position: relative;
 }
@@ -353,8 +362,8 @@ body {
   font-size: 18px;
   color: var(--text-primary-color);
   position: absolute;
-  left: 40px;
-  top: 20px;
+  left: 47px;
+  top: 21px;
 }
 
 .top-section__input-adults {
@@ -362,9 +371,6 @@ body {
   height: 64px;
   border: none;
   padding-left: 24px;
-}
-
-.top-section__input-adults::placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--text-primary-color);
@@ -389,17 +395,14 @@ body {
   font-size: 18px;
   color: var(--text-primary-color);
   position: absolute;
-  left: 18px;
-  top: 20px;
+  left: 25px;
+  top: 21px;
 }
 
 .top-section__input-children-room {
   width: 100%;
   height: 64px;
   border: none;
-}
-
-.top-section__input-children-room::placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--text-primary-color);
@@ -420,8 +423,8 @@ body {
   font-size: 18px;
   color: var(--text-primary-color);
   position: absolute;
-  left: 18px;
-  top: 20px;
+  left: 25px;
+  top: 21px;
 }
 
 .top-section__button {
@@ -433,6 +436,10 @@ body {
   font-weight: 500;
   font-size: 24px;
   color: var(--text-general-white);
+}
+
+.top-section__button:hover {
+  cursor: pointer;
 }
 
 .top-section__apps {
@@ -450,6 +457,107 @@ body {
 .top-section__apps--app-store {
   width: 120px;
   height: 40px;
+}
+
+.top-section__filter {
+  display: none;
+  width: 259px;
+  background-color: var(--text-general-white);
+  padding: 22px;
+  border: 2px solid var(--stroke-color);
+  border-radius: 8px;
+  position: absolute;
+  top: 130%;
+  right: 15%;
+  z-index: 1;
+}
+
+.top-section__filter-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.top-section__filter .top-section__filter-block:nth-child(3) {
+  margin-bottom: 0;
+}
+
+.top-section__filter-text {
+  font-size: 16px;
+  color: var(--dark-gray);
+}
+
+.top-section__filter-counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-section__filter-button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--accent-blue);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--accent-blue);
+  background-color: var(--text-general-white);
+  padding: 5px 9px;
+  user-select: none;
+}
+
+.top-section__filter-button:hover {
+  cursor: pointer;
+}
+
+.top-section__filter-button:disabled {
+  border: 1px solid var(--light-gray);
+  color: var(--light-gray);
+}
+
+.top-section__filter-button:disabled:hover {
+  cursor: default;
+}
+
+.top-section__input-value {
+  width: 48px;
+  background-color: var(--text-general-white);
+  border: none;
+  font-size: 16px;
+  text-align: center;
+}
+
+.top-section__filter-children {
+  display: none;
+  padding-top: 28px;
+}
+
+.top-section__filter-select {
+  width: 99px;
+  height: 30px;
+  border: 1px solid var(--accent-blue);
+  padding: 6px;
+  margin-top: 15px;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+  color: var(--dark-gray);
+  display: inline-block;
+}
+
+.top-section__filter-select:focus {
+  outline: none;
+}
+
+.top-section__filter-select:nth-child(even) {
+  margin-right: 13px;
+}
+
+.top-section__filter-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--dark-gray);
+  display: block;
 }
 
 .available-hotels {
