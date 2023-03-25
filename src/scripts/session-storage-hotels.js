@@ -1,15 +1,17 @@
 const homesHotels = document.getElementById('hotels');
+const url = 'https://if-student-api.onrender.com/api/hotels/popular';
+import { storageHotelsKey } from './storage-keys.js';
 
 const getData = () => {
-  if (sessionStorage.getItem('hotels') === null) {
-    fetch('https://if-student-api.onrender.com/api/hotels/popular')
+  if (!sessionStorage.getItem(storageHotelsKey)) {
+    fetch(url)
       .then((response) => response.text())
       .then((data) => {
-        sessionStorage.setItem('hotels', data);
+        sessionStorage.setItem(storageHotelsKey, data);
         createHotels(JSON.parse(data));
       });
   } else {
-    createHotels(JSON.parse(sessionStorage.getItem('hotels')));
+    createHotels(JSON.parse(sessionStorage.getItem(storageHotelsKey)));
   }
 };
 
