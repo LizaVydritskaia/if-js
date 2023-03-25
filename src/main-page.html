@@ -295,7 +295,8 @@
                 class="top-section__input-adults"
                 type="text"
                 name="adults"
-                placeholder="2"
+                value="2"
+                readonly
               />
               <span class="top-section__input-room-dash">—</span>
               <div class="top-section__children">
@@ -308,7 +309,8 @@
                   class="top-section__input-children-room"
                   type="text"
                   name="children"
-                  placeholder="0"
+                  value="0"
+                  readonly
                 />
                 <div class="top-section__line top-section__line--right"></div>
               </div>
@@ -320,11 +322,116 @@
                   class="top-section__input-children-room top-section__input-children-room--border"
                   type="text"
                   name="room"
-                  placeholder="1"
+                  value="1"
+                  readonly
                 />
               </div>
             </div>
             <button class="top-section__button" type="submit">Search</button>
+            <div class="top-section__filter">
+              <div class="top-section__filter-block">
+                <span class="top-section__filter-text">Adults</span>
+                <div class="top-section__filter-counter">
+                  <button
+                    type="button"
+                    class="top-section__filter-button"
+                    data-field="adults"
+                    data-direction="minus"
+                    data-min="1"
+                    data-max="30"
+                  >
+                    –
+                  </button>
+                  <input
+                    type="text"
+                    value="2"
+                    class="top-section__input-value"
+                    disabled
+                  />
+                  <button
+                    type="button"
+                    class="top-section__filter-button"
+                    data-field="adults"
+                    data-direction="plus"
+                    data-min="1"
+                    data-max="30"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <div class="top-section__filter-block">
+                <span class="top-section__filter-text">Children</span>
+                <div class="top-section__filter-counter">
+                  <button
+                    type="button"
+                    class="top-section__filter-button"
+                    data-field="children"
+                    data-direction="minus"
+                    data-min="0"
+                    data-max="10"
+                    disabled
+                  >
+                    –
+                  </button>
+                  <input
+                    type="text"
+                    value="0"
+                    class="top-section__input-value"
+                    disabled
+                  />
+                  <button
+                    type="button"
+                    class="top-section__filter-button"
+                    data-field="children"
+                    data-direction="plus"
+                    data-min="0"
+                    data-max="10"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <div class="top-section__filter-block">
+                <span class="top-section__filter-text">Room</span>
+                <div class="top-section__filter-counter">
+                  <button
+                    type="button"
+                    class="top-section__filter-button"
+                    data-field="room"
+                    data-direction="minus"
+                    data-min="1"
+                    data-max="30"
+                    disabled
+                  >
+                    –
+                  </button>
+                  <input
+                    type="text"
+                    value="1"
+                    class="top-section__input-value"
+                    disabled
+                  />
+                  <button
+                    type="button"
+                    class="top-section__filter-button"
+                    data-field="room"
+                    data-direction="plus"
+                    data-min="1"
+                    data-max="30"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <div class="top-section__filter-children">
+                <form class="top-section__filter-form" action="/">
+                  <label class="top-section__filter-label" for="child-age"
+                    >What is the age of the child you’re travelling with?</label
+                  >
+                </form>
+              </div>
+            </div>
           </form>
           <div class="top-section__apps">
             <svg class="top-section__apps--google-play">
@@ -334,6 +441,15 @@
               <use href="#app-store" />
             </svg>
           </div>
+        </div>
+      </section>
+      <section class="available-hotels">
+        <div class="container">
+          <h2 class="available-hotels__title homes__title">Available hotels</h2>
+          <div
+            id="available-hotels"
+            class="available-hotels__hotels homes__hotels"
+          ></div>
         </div>
       </section>
       <section class="offer container">
@@ -670,8 +786,14 @@
         </div>
       </footer>
     </main>
+    <script type="module" src="scripts/show-filter.js"></script>
+    <script type="module" src="scripts/filter-counter.js"></script>
+    <script type="module" src="scripts/filter-children-selects.js"></script>
     <script type="module" src="scripts/data-homes.js"></script>
     <script type="module" src="scripts/session-storage-hotels.js"></script>
     <script type="module" src="scripts/storage-keys.js"></script>
+    <script type="module" src="scripts/add-hotels.js"></script>
+    <script type="module" src="scripts/homes-guests-loves.js"></script>
+    <script type="module" src="scripts/available-hotels.js"></script>
   </body>
 </html>
