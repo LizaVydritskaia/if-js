@@ -1,6 +1,6 @@
 const homesHotels = document.getElementById('hotels');
 const url = 'https://if-student-api.onrender.com/api/hotels/popular';
-import { storageHotelsKey } from './storage-keys.js';
+import { storageHotelsKey } from './sessionStorageKeys.js';
 
 const getData = () => {
   if (!sessionStorage.getItem(storageHotelsKey)) {
