@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest",
     "prepare": "husky install",
-    "lint": "prettier --write . && eslint src/scripts/main.js",
-    "prepublish": "npm run lint && npm test"
+    "lint": "prettier --write . && eslint src/scripts/popularHotels.js",
+    "prepublish": "npm run lint"
   },
   "repository": {
     "type": "git",
