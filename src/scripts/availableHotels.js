@@ -22,7 +22,7 @@ const getChildrenAge = () => {
   return valuesArray.join(',');
 };
 
-const fetchRequest = async ({
+const fetchRequest = ({
   searchValue,
   adultsValue,
   childrenValue,
@@ -35,24 +35,7 @@ const fetchRequest = async ({
   url.searchParams.set('children', childrenValue);
   url.searchParams.set('rooms', roomsValue);
 
-  return await fetch(url);
-};
-
-const renderAvailableHotels = async () => {
-  try {
-    const response = await fetchRequest({
-      searchValue: destinationInput.value,
-      adultsValue: adultsInput.value,
-      childrenValue: getChildrenAge(),
-      roomsValue: roomInput.value,
-    });
-
-    const result = await response.json();
-
-    createHotelBlock(result);
-  } catch (error) {
-    console.log('Fetch Error', error);
-  }
+  return fetch(url);
 };
 
 const createHotelBlock = (result) => {
@@ -71,6 +54,23 @@ const createHotelBlock = (result) => {
   });
 
   availableHotels.insertAdjacentHTML('beforeend', arrow);
+};
+
+const renderAvailableHotels = async () => {
+  try {
+    const response = await fetchRequest({
+      searchValue: destinationInput.value,
+      adultsValue: adultsInput.value,
+      childrenValue: getChildrenAge(),
+      roomsValue: roomInput.value,
+    });
+
+    const result = await response.json();
+
+    createHotelBlock(result);
+  } catch (error) {
+    console.log('Fetch Error', error);
+  }
 };
 
 searchButton.addEventListener('click', (event) => {
