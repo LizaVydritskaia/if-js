@@ -15,8 +15,25 @@ const getData = () => {
   }
 };
 
+const hotelsBubbleSort = (array) => {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length - i - 1; j++) {
+      if (array[j].name > array[j + 1].name) {
+        const previousValue = array[j];
+
+        array[j] = array[j + 1];
+
+        array[j + 1] = previousValue;
+      }
+    }
+  }
+
+  return array;
+};
+
 const createHotels = (data) => {
-  const hotels = data
+  const sortedHotels = hotelsBubbleSort(data);
+  const hotels = sortedHotels
     .map(
       (hotel) =>
         `<div class="col-lg-3 col-md-6 col-sm-3 homes__hotel-block"><img class="homes__hotels-image" src=${hotel.imageUrl} alt=${hotel.name}/>

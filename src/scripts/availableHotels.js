@@ -4,22 +4,41 @@ const availableHotels = document.getElementById('available-hotels');
 const arrow =
   '<div class="homes__circle-arrow"><div class="homes__arrow"></div></div>';
 
-const getSearchData = async () => {
-  const destinationInput = document.getElementById('destination');
+const destinationInput = document.getElementById('destination');
+const adultsInput = document.getElementById('adults');
+const childrenSelect = document.getElementsByClassName(
+  'top-section__filter-select',
+);
+const roomInput = document.getElementById('room');
 
-  const url = new URL('https://if-student-api.onrender.com/api/hotels');
-  url.searchParams.append('search', destinationInput.value.trim());
+const getChildrenAge = () => {
+  const childrenSelectArray = Array.from(childrenSelect);
 
-  try {
-    const searchData = await fetch(url);
-    const result = await searchData.json();
-    await renderAvailableHotels(result);
-  } catch (error) {
-    console.log('Fetch Error', error);
-  }
+  const valuesArray = [];
+
+  childrenSelectArray.forEach((item) => {
+    valuesArray.push(item.value);
+  });
+  return valuesArray.join(',');
 };
 
-const renderAvailableHotels = (result) => {
+const fetchRequest = ({
+  searchValue,
+  adultsValue,
+  childrenValue,
+  roomsValue,
+}) => {
+  const url = new URL('https://if-student-api.onrender.com/api/hotels');
+
+  url.searchParams.set('search', searchValue.trim());
+  url.searchParams.set('adults', adultsValue);
+  url.searchParams.set('children', childrenValue);
+  url.searchParams.set('rooms', roomsValue);
+
+  return fetch(url);
+};
+
+const createHotelBlock = (result) => {
   sectionAvailableHotels.style.display = 'block';
   availableHotels.innerHTML = '';
 
@@ -37,7 +56,24 @@ const renderAvailableHotels = (result) => {
   availableHotels.insertAdjacentHTML('beforeend', arrow);
 };
 
+const renderAvailableHotels = async () => {
+  try {
+    const response = await fetchRequest({
+      searchValue: destinationInput.value,
+      adultsValue: adultsInput.value,
+      childrenValue: getChildrenAge(),
+      roomsValue: roomInput.value,
+    });
+
+    const result = await response.json();
+
+    createHotelBlock(result);
+  } catch (error) {
+    console.log('Fetch Error', error);
+  }
+};
+
 searchButton.addEventListener('click', (event) => {
   event.preventDefault();
-  getSearchData();
+  renderAvailableHotels();
 });
